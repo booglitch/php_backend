@@ -16,13 +16,18 @@
  
   $update_link = '';
   $delete_link = '';
+  $author = '';
   if(isset($_GET['id'])){
      $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
-     $sql = "SELECT * FROM topic WHERE id={$filtered_id}";
+     //$sql = "SELECT * FROM topic WHERE id={$filtered_id}";
+     // now author table left join topic table
+     $sql = "SELECT * FROM topic LEFT JOIN author ON topic.author_id = author.id WHERE topic.id={$filtered_id}";
      $result = mysqli_query($conn, $sql);
      $row = mysqli_fetch_array($result);
+     //print_r($row);
      $article['title'] = htmlspecialchars($row['title']);
      $article['description'] = htmlspecialchars($row['description']);
+     $article['name'] = htmlspecialchars($row['name']);
 
      $update_link = '<a href="update.php?id='.$_GET['id'].'">update</a>';
      $delete_link = '
@@ -31,6 +36,7 @@
 	<input type="submit" value="delete">
      </form>
      ';
+     $author = "<p>by {$article['name']}</p>";
      //data trasfer using post method not GET
   }
 
@@ -53,5 +59,6 @@
 		<?=$delete_link?>
 		<h2><?=$article['title']?></h2>
 		<?=$article['description']?>
+		<?=$author?>
 	</body>
 </html>
