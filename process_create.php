@@ -28,5 +28,4 @@ if($result === false){
 	echo 'success query <a href="index.php">back_to_index_page</a>';
 }
 
-echo $sql;
 ?>
