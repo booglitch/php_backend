@@ -5,14 +5,14 @@ $conn = mysqli_connect('localhost', 'root', '1234', 'opentutorials');
 settype($_POST['id'], 'integer');
 $filtered = array(
 	'id' => mysqli_real_escape_string($conn, $_POST['id']),
-	'title'=>mysqli_real_escape_string($conn, $_POST['title']),
-	'description'=>mysqli_real_escape_string($conn, $_POST['description'])
+	'name'=>mysqli_real_escape_string($conn, $_POST['name']),
+	'profile'=>mysqli_real_escape_string($conn, $_POST['profile'])
 
 );
 
 
-$sql = "UPDATE topic SET title = '{$filtered['title']}',
-		         description = '{$filtered['description']}'
+$sql = "UPDATE author SET name = '{$filtered['name']}',
+		         profile = '{$filtered['profile']}'
 			WHERE
 			 id = {$filtered['id']}
 ";
@@ -22,8 +22,7 @@ if($result === false){
 	echo 'error';
 	error_log(mysqli_error($conn));
 }else{
-	echo 'success query <a href="index.php">back_to_index_page</a>';
+    header('Location: author.php?id='.filtered['id']);	
 }
-
 
 ?>
