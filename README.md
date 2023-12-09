@@ -11,8 +11,6 @@ PHP + Apache + MySQL 을 이용한 Backend Coding Project
 * Web Server : Apache/2.4.18 (Ubuntu)
 * OS : Ubuntu 16.04.7 LTS
 
----
-
 ##📌 주요기능
 
 
