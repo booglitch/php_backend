@@ -11,6 +11,10 @@ PHP + Apache + MySQL 을 이용한 Backend Coding Project
 * Web Server : Apache/2.4.18 (Ubuntu)
 * OS : Ubuntu 16.04.7 LTS
 
-##📌 주요기능
-
+#📌 주요기능
+* 게시판 기능
+  - create 버튼을 통해 게시물 추가 기능 동작
+  - 게시물을 클릭하면 상세 정보 확인 가능
+  - 게시물을 상세보기에서 update 버튼으로 수정 가능
+  - 게시물 상세보기에서 delete 버튼을 통해 삭제 가능
 
